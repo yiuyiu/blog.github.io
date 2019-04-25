@@ -120,7 +120,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/04/25/understanding-grid-1/fr.gif">
 <meta property="og:image" content="http://yoursite.com/2019/04/25/understanding-grid-1/E973B318-CBE3-4FB5-B555-D0B847279CFA.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/25/understanding-grid-1/D5965548-1028-4923-8EA9-BE35BE357C47.png">
-<meta property="og:updated_time" content="2019-04-25T10:43:50.322Z">
+<meta property="og:updated_time" content="2019-04-25T13:02:27.630Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初涉grid布局🐱（一）">
 <meta name="twitter:description" content="一直觉得grid 是个离我很遥远的技术，以为兼容性差，直到最近查看了 https://caniuse.com/#search=grid   发现其实兼容性已经很好了，本篇文章基于Wes Bos的grid课程，以及相关技术文章整理而成。相关属性的取值可能有多个，需要自行查阅文档😯 开发浏览器选择推荐使用火狐浏览器开发者版本 Firefox Developer Edition ，对css grid调">
@@ -424,7 +424,7 @@
                 
               
 
-              <time title="创建时间：2019-04-25 16:32:49 / 修改时间：18:43:50" itemprop="dateCreated datePublished" datetime="2019-04-25T16:32:49+08:00">2019-04-25</time>
+              <time title="创建时间：2019-04-25 16:32:49 / 修改时间：21:02:27" itemprop="dateCreated datePublished" datetime="2019-04-25T16:32:49+08:00">2019-04-25</time>
             
 
             
@@ -558,7 +558,7 @@ grid超出了container的范围，再小的话就会出现滚动条了。<h4 id=
 <h4 id="repeat"><a href="#repeat" class="headerlink" title="repeat ()"></a>repeat ()</h4><p><code>grid-template-columns: 1fr 1fr 1fr</code> 可以写成 <code>grid-tempalte-columns: repeat(3,1fr)</code><br>repeat函数的第二个参数也可以为多个单位。比如 <code>repeat(2,1fr 100px)</code></p>
 <h4 id="minmax"><a href="#minmax" class="headerlink" title="minmax()"></a>minmax()</h4><p>表示一个取值范围；<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:grid;</span><br><span class="line">    <span class="attribute">grid-template-columns </span>: <span class="built_in">minmax</span>(100px, 1fr)  <span class="number">1</span>fr <span class="number">1</span>fr;</span><br><span class="line">    <span class="attribute">grid-gap</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>如果最大值比最小值小的情况下直接返回最小值, 在当前容器是1fr 1fr 1fr且单个fr的值大于100px的时候才会运用fr，其他情况都是100px</p>
-
+<a href="/2019/04/25/understanding-grid-2/" title="初涉grid布局🐱（二）">初涉grid布局🐱（二）</a>
       
     </div>
 
