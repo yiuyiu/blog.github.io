@@ -96,22 +96,18 @@
 
 
 
-  <meta name="description" content="kye如果没有这个属性的时候vue应用 in-place patch（就地复用）策略。列表里的顺序发生改变的时候比如shuffle（列表打乱）的时候，vue为了提升性能，不会移动dom元素，只是更新相应元素的内容节点。 就地复用的弊端 这个默认的模式是高效的，但是只适用于不依赖子组件状态或临时 DOM 状态 (例如：表单输入值) 的列表渲染输出。">
-<meta name="keywords" content="vue">
+  <meta name="description" content="webpack作者是c#出身，很多代码是OOP模式，可以借鉴下  Tapablewebpack4重写了Tapable, 是webpack的插件组织的核心。它提供给各个插件钩子，在事件触发时执行这些挂载的方法。webapck的插件里必须有apply()方法，当其被调用的时候webpack将钩子上的方法挂载到各个事件下面有点像nodejs里EventEmitter的$on12345678910111">
+<meta name="keywords" content="webpack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何理解vue的key属性">
-<meta property="og:url" content="http://yoursite.com/2019/04/12/vue-key/index.html">
+<meta property="og:title" content="webpack4插件及工作流程">
+<meta property="og:url" content="http://yoursite.com/2019/05/06/how-does-webpack4-work/index.html">
 <meta property="og:site_name" content="嘻嘻的后花园">
-<meta property="og:description" content="kye如果没有这个属性的时候vue应用 in-place patch（就地复用）策略。列表里的顺序发生改变的时候比如shuffle（列表打乱）的时候，vue为了提升性能，不会移动dom元素，只是更新相应元素的内容节点。 就地复用的弊端 这个默认的模式是高效的，但是只适用于不依赖子组件状态或临时 DOM 状态 (例如：表单输入值) 的列表渲染输出。">
+<meta property="og:description" content="webpack作者是c#出身，很多代码是OOP模式，可以借鉴下  Tapablewebpack4重写了Tapable, 是webpack的插件组织的核心。它提供给各个插件钩子，在事件触发时执行这些挂载的方法。webapck的插件里必须有apply()方法，当其被调用的时候webpack将钩子上的方法挂载到各个事件下面有点像nodejs里EventEmitter的$on12345678910111">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2019/04/12/vue-key/shuffle_array.gif">
-<meta property="og:image" content="http://yoursite.com/2019/04/12/vue-key/no-key-shuffle.gif">
-<meta property="og:image" content="http://yoursite.com/2019/04/12/vue-key/has-key-shuffle.gif">
-<meta property="og:updated_time" content="2019-04-27T08:55:50.492Z">
+<meta property="og:updated_time" content="2019-05-06T09:12:23.923Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何理解vue的key属性">
-<meta name="twitter:description" content="kye如果没有这个属性的时候vue应用 in-place patch（就地复用）策略。列表里的顺序发生改变的时候比如shuffle（列表打乱）的时候，vue为了提升性能，不会移动dom元素，只是更新相应元素的内容节点。 就地复用的弊端 这个默认的模式是高效的，但是只适用于不依赖子组件状态或临时 DOM 状态 (例如：表单输入值) 的列表渲染输出。">
-<meta name="twitter:image" content="http://yoursite.com/2019/04/12/vue-key/shuffle_array.gif">
+<meta name="twitter:title" content="webpack4插件及工作流程">
+<meta name="twitter:description" content="webpack作者是c#出身，很多代码是OOP模式，可以借鉴下  Tapablewebpack4重写了Tapable, 是webpack的插件组织的核心。它提供给各个插件钩子，在事件触发时执行这些挂载的方法。webapck的插件里必须有apply()方法，当其被调用的时候webpack将钩子上的方法挂载到各个事件下面有点像nodejs里EventEmitter的$on12345678910111">
 
 
 
@@ -119,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/04/12/vue-key/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/06/how-does-webpack4-work/">
 
 
 
@@ -129,7 +125,7 @@
   };
 </script>
 
-  <title>如何理解vue的key属性 | 嘻嘻的后花园</title>
+  <title>webpack4插件及工作流程 | 嘻嘻的后花园</title>
   
 
 
@@ -368,7 +364,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/12/vue-key/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/06/how-does-webpack4-work/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="嘻嘻">
@@ -385,7 +381,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">如何理解vue的key属性
+          <h1 class="post-title" itemprop="name headline">webpack4插件及工作流程
 
               
             
@@ -411,24 +407,12 @@
                 
               
 
-              <time title="创建时间：2019-04-12 10:50:16" itemprop="dateCreated datePublished" datetime="2019-04-12T10:50:16+08:00">2019-04-12</time>
+              <time title="创建时间：2019-05-06 16:46:34 / 修改时间：17:12:23" itemprop="dateCreated datePublished" datetime="2019-05-06T16:46:34+08:00">2019-05-06</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-27 16:55:50" itemprop="dateModified" datetime="2019-04-27T16:55:50+08:00">2019-04-27</time>
               
             
           </span>
@@ -452,14 +436,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/frontend/framework/" itemprop="url" rel="index"><span itemprop="name">framework</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/frontend/framework/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/frontend/bundler/" itemprop="url" rel="index"><span itemprop="name">bundler</span></a></span>
 
                 
                 
@@ -494,25 +471,51 @@
       
 
       
-        <h3 id="kye"><a href="#kye" class="headerlink" title="kye"></a>kye</h3><p>如果没有这个属性的时候vue应用 in-place patch（就地复用）策略。列表里的顺序发生改变的时候比如shuffle（列表打乱）的时候，vue为了提升性能，不会移动dom元素，只是更新相应元素的内容节点。</p>
-<h3 id="就地复用的弊端"><a href="#就地复用的弊端" class="headerlink" title="就地复用的弊端"></a>就地复用的弊端</h3><blockquote>
-<p>这个默认的模式是高效的，但是只适用于不依赖子组件状态或临时 DOM 状态 (例如：表单输入值) 的列表渲染输出。</p>
+        <blockquote>
+<p>webpack作者是c#出身，很多代码是OOP模式，可以借鉴下</p>
 </blockquote>
+<h2 id="Tapable"><a href="#Tapable" class="headerlink" title="Tapable"></a>Tapable</h2><p>webpack4重写了<a href="https://github.com/webpack/tapable" target="_blank" rel="noopener">Tapable</a>, 是webpack的插件组织的核心。它提供给各个插件钩子，在事件触发时执行这些挂载的方法。webapck的插件里必须有<code>apply()</code>方法，当其被调用的时候webpack将钩子上的方法挂载到各个事件下面有点像<code>nodejs</code>里<code>EventEmitter</code>的<code>$on</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">	<span class="keyword">constructor</span>() &#123;</span><br><span class="line">		<span class="keyword">this</span>.hooks = &#123;</span><br><span class="line">			accelerate: <span class="keyword">new</span> SyncHook([<span class="string">"newSpeed"</span>]),</span><br><span class="line">			brake: <span class="keyword">new</span> SyncHook(),</span><br><span class="line">			calculateRoutes: <span class="keyword">new</span> AsyncParallelHook([<span class="string">"source"</span>, <span class="string">"target"</span>, <span class="string">"routesList"</span>])</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;,</span><br><span class="line">    setSpeed(newSpeed) &#123;</span><br><span class="line">		<span class="keyword">this</span>.hooks.accelerate.call(newSpeed);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<p>如上引用自官网，这个模式就是上面的“就地复用”策略。那么是不是依赖子组件状态的列表渲染采用上面的模式就出问题了呢。如下测试代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; item.title &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; item.des &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">tweet-component</span>&gt;</span><span class="tag">&lt;/<span class="name">tweet-component</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  Vue.component(<span class="string">"tweet-component"</span>, &#123;</span></span><br><span class="line"><span class="undefined">    template: `</span></span><br><span class="line"><span class="javascript">      &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"tweet"</span>&gt;</span></span><br><span class="line"><span class="javascript">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line"><span class="undefined">          &#123;&#123;xixi&#125;&#125;</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="undefined">    `,</span></span><br><span class="line"><span class="undefined">    data() &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">        xixi: <span class="built_in">Math</span>.random()</span></span><br><span class="line"><span class="undefined">      &#125;;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;);</span></span><br><span class="line"><span class="javascript">  <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">    el: <span class="string">"#app"</span>,</span></span><br><span class="line"><span class="undefined">    data: &#123;</span></span><br><span class="line"><span class="undefined">      items: [</span></span><br><span class="line"><span class="javascript">        &#123; <span class="attr">title</span>: <span class="string">"nihao1"</span>, <span class="attr">des</span>: <span class="string">"xiexie1"</span> &#125;,</span></span><br><span class="line"><span class="javascript">        &#123; <span class="attr">title</span>: <span class="string">"nihao2"</span>, <span class="attr">des</span>: <span class="string">"xiexie2"</span> &#125;,</span></span><br><span class="line"><span class="javascript">        &#123; <span class="attr">title</span>: <span class="string">"nihao3"</span>, <span class="attr">des</span>: <span class="string">"xiexie3"</span> &#125;</span></span><br><span class="line"><span class="undefined">      ]</span></span><br><span class="line"><span class="undefined">    &#125;,</span></span><br><span class="line"><span class="undefined">    methods: &#123;</span></span><br><span class="line"><span class="undefined">      shuffle() &#123;</span></span><br><span class="line"><span class="javascript">          <span class="comment">// lodash的shuffle方法</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">this</span>.items = _.shuffle(<span class="keyword">this</span>.items);</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>操作如下：</p>
-<p>问题出现了：发生变化时，子组件<em>没有更新</em>。<br><img src="/2019/04/12/vue-key/shuffle_array.gif"></p>
-<p>ps: 测试临时 DOM 状态 (例如：表单输入值)可以参考这个链接 <a href="https://css-tricks.com/list-rendering-and-vues-v-for-directive/" target="_blank" rel="noopener">List Rendering and Vue’s v-for Directive</a></p>
-<h3 id="key的作用"><a href="#key的作用" class="headerlink" title="key的作用"></a>key的作用</h3><p>这个时候引入 <code>key</code> 就可以解决这个问题。<code>key</code> 的作用是给予一个节点唯一的身份识别，有相同父元素的子元素必须有独特的 <code>key</code> 。这样它可以前后对比，算出哪些节点是要重复使用或者调整顺序。比如原先的 <code>key</code> 的顺序是<code>i1,i2,i3</code>，之后变成了<code>i2,i1,i3</code>这个时候只要i3保持不变，把i2<code>insertBefore</code>到i1节点前就行了（以上是举例，vue具体怎么操作的需要去研究源码）。如果是利用数组的<code>index</code>来作为 <code>key</code> 则两次对比没有区别，就会出现上面动图里出现的子组件没有更新的情况。</p>
-<p>可以通过查看下面两个动图查看dom节点的变化。第一个gif是没有使用 <code>key</code> ,第二个是使用了 <code>key</code>。可以看到我点了按钮后，第一个只是更新<code>&lt;p&gt;</code>标签的内容节点。第二个是移动了某一项的<code>&lt;li&gt;</code>标签。<br><img src="/2019/04/12/vue-key/no-key-shuffle.gif"><br><img src="/2019/04/12/vue-key/has-key-shuffle.gif"></p>
-<p>ps: 另外可以通过chrome的dom断点功能查看子元素的插入删除。</p>
-<p><a href="https://developers.google.com/web/tools/chrome-devtools/javascript/breakpoints#dom" target="_blank" rel="noopener">DOM 更改断点</a></p>
-<h3 id="key的其他用途"><a href="#key的其他用途" class="headerlink" title="key的其他用途"></a>key的其他用途</h3><p>key不是只能用在v-for上还可以用在其他元素上。如下代码<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"toggle"</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span>Goodbye<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>切换toggle时，它也是切换div。如果你想用上enter/leave animations时，即节点插入和删除的时候的动画时就要打破这个复用，如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"toggle"</span> <span class="attr">key</span>=<span class="string">"1"</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span> <span class="attr">key</span>=<span class="string">"2"</span>&gt;</span>Goodbye<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>如果你的列表不发生变化，或者你只是往列表最后一项添加元素则看似不必要增加<code>key</code>字段。但是你的项目中有很多列表的时候，你有的需要加<code>key</code>，有的不需要加。还不如所有的都加上呢避免别人理解困难(^._.^)ﾉ。</p>
-<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://vuejs.org/v2/guide/list.html#key" target="_blank" rel="noopener">https://vuejs.org/v2/guide/list.html#key</a></p>
-<p><a href="https://vuejs.org/v2/api/#key" target="_blank" rel="noopener">https://vuejs.org/v2/api/#key</a></p>
-<p><a href="https://forum.vuejs.org/t/simple-clarification-of-when-using-key-with-v-for-is-appropriate-and-why/28966/5" target="_blank" rel="noopener">https://forum.vuejs.org/t/simple-clarification-of-when-using-key-with-v-for-is-appropriate-and-why/28966/5</a></p>
+<p>如上代码所示先是在实例化的过程中注册了三个钩子函数，在实例上调用方法时触发钩子函数。<br>下面介绍webpack里主要的6个<code>Tapable</code>的实例, 它们都继承了<code>Tapable</code>，定义了一些自己的hook</p>
+<h2 id="Compiler"><a href="#Compiler" class="headerlink" title="Compiler"></a>Compiler</h2><p>最高层的实例，初始化配置，提供全局性的钩子比如<code>done</code>, <code>compilation</code>。其他的<code>Tapable</code>实例需要通过其访问，如<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">compiler.hooks.compilation.tap(</span><br><span class="line">  <span class="string">"myFirstWebpackPlugin"</span>,</span><br><span class="line">  (compilation, params) =&gt; &#123;</span><br><span class="line">    compilation.hooks.seal.tap()</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<h2 id="Compilation"><a href="#Compilation" class="headerlink" title="Compilation"></a>Compilation</h2><p>由<code>Compiler</code>创建，整个构建就在这里完成，进行依赖图构建，优化资源，渲染出runtime时的代码等。下面的4个实例都是发生在这个阶段。</p>
+<h2 id="Resolver"><a href="#Resolver" class="headerlink" title="Resolver"></a>Resolver</h2><p>当你请求一个模块的时候，你将模块名或者相对地址发给模块解析器，它会去解析出绝对地址去寻找那个模块，看是否存在，如果存在则返回相应的模块信息，包括上下文等。这里的请求可以类似网络请求一样携带上查询参数之类的，<code>Resolver</code>将会返回额外信息。webpack4里将<code>Resolver</code>这个实例抽出来单独发了一个包<code>enhanced-resolve</code>, 抽象出来可以便于用户实现自己的<code>Resolver</code></p>
+<h2 id="ModuleFactory"><a href="#ModuleFactory" class="headerlink" title="ModuleFactory"></a>ModuleFactory</h2><p>模块工厂就是负责构造模块的实例，介绍两种<code>NormalModuleFactory</code>和<code>ContextModuleFactory</code>。两者不同的地方在于后者用于解析动态<code>import()</code>. 模块工厂主要是用于将<code>Resolver</code>解析成功的请求里的源码从文件中拿出，在内存中创建一个模块对象（NormalModule）</p>
+<h2 id="Parser"><a href="#Parser" class="headerlink" title="Parser"></a>Parser</h2><p><code>Parser</code>主要用于将代码解析成AST抽象语法🌲.可以在<a href="https://astexplorer.net/" target="_blank" rel="noopener">ast</a>查看代码转换成AST后的样子。webpack默认采用<code>acorn</code>解析器，babel是<code>babylon</code>。<code>Parser</code>将<code>ModuleFactory</code>返回的对象里的代码字符串转换成AST后进行解析，发现<code>import</code>或者<code>require</code>或者<code>define</code>类似模块引用时会将这些引用信息也就是依赖添加到当前模块的对象里，这样每个模块对象里不但有自己模块的信息还包含它的依赖信息。webpack会在不仅仅会在模块声明处触发事件，它甚至会在解析到变量时也触发事件。如下在<code>webpack/lib/Parser.js</code>里可以看到如下三个钩子函数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">varDeclaration: <span class="keyword">new</span> HookMap(<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">new</span> SyncBailHook([<span class="string">"declaration"</span>])),</span><br><span class="line">varDeclarationLet: <span class="keyword">new</span> HookMap(<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">new</span> SyncBailHook([<span class="string">"declaration"</span>])),</span><br><span class="line">varDeclarationConst: <span class="keyword">new</span> HookMap(<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">new</span> SyncBailHook([<span class="string">"declaration"</span>])),</span><br></pre></td></tr></table></figure></p>
+<h2 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h2><p>负责生成运行时的代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 源码</span></span><br><span class="line"><span class="comment">// index.js</span></span><br><span class="line">    <span class="keyword">var</span> multiply  = <span class="built_in">require</span>(<span class="string">'./multiply'</span>)</span><br><span class="line">    <span class="keyword">var</span> sum = <span class="function">(<span class="params">a,b</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a+b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">module</span>.exports = sum;</span><br><span class="line"><span class="comment">// multiply.js</span></span><br><span class="line">    <span class="built_in">module</span>.exports = <span class="function">(<span class="params">a, b</span>) =&gt;</span> a*b</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成的runtime</span></span><br><span class="line">[</span><br><span class="line"><span class="comment">/* 0 */</span></span><br><span class="line"><span class="comment">/***/</span> (<span class="function"><span class="keyword">function</span>(<span class="params">module, exports, __webpack_require__</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> multiply  = __webpack_require__(<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">var</span> sum = <span class="function">(<span class="params">a,b</span>)=&gt;</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> a+b;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">module</span>.exports = sum;</span><br><span class="line"><span class="comment">/***/</span> &#125;),</span><br><span class="line"><span class="comment">/* 1 */</span></span><br><span class="line"><span class="comment">/***/</span> (<span class="function"><span class="keyword">function</span>(<span class="params">module, exports</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">module</span>.exports = <span class="function">(<span class="params">a, b</span>) =&gt;</span> a*b</span><br><span class="line"><span class="comment">/***/</span> &#125;)</span><br><span class="line">];</span><br></pre></td></tr></table></figure></p>
+<p>如上面代码所示，里面包含三个模板，分别负责chunk, module, dependency. chunk是包含多个模块的数组，就是外面数组的形式；module就是里面用立即执行函数包围的部分;dependency就是将原先<code>import</code>, <code>require</code>等引用模块部分转换成 <code>__webpack_require__</code>.</p>
+<h2 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h2><blockquote>
+<p>目前只看到模块构建那部分，后续再补充╮(╯_╰)╭。。。心得就是利用好vscode的调试工具多打断点~~</p>
+</blockquote>
+<p>介绍完了这六个实例，下面大致讲下webpack的工作流程，webpack做的工作非常多，这里只挑主要的讲下。括号里的是源码所在的文件位置，上下文是<code>node_modules/webpack</code>. 本流程基于webpack4.30.0版本。</p>
+<ol>
+<li>首先是将配置文件读入，webpack4有默认配置<code>options = new WebpackOptionsDefaulter().process(options);</code>会以用户的配置为先。Compiler进行创建<code>compiler = new Compiler(options.context);</code>将配置里的plugin部分进行绑定调用<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> plugin <span class="keyword">of</span> options.plugins) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> plugin === <span class="string">"function"</span>) &#123;</span><br><span class="line">        plugin.call(compiler, compiler);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        plugin.apply(compiler);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>进行其他配置设置<code>compiler.options = new WebpackOptionsApply().process(options, compiler);</code><br> (lib/webpack.js)</p>
+<ol start="2">
+<li>接着根据打包的目标（web, node, electron等）生成不同的打包模板<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (options.target) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"web"</span>:</span><br><span class="line">        JsonpTemplatePlugin = <span class="built_in">require</span>(<span class="string">"./web/JsonpTemplatePlugin"</span>);</span><br><span class="line">        ...</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"webworker"</span>:</span><br><span class="line">        ...</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>因为浏览器端请求异步加载的模块会类似jsonp插入dom中<code>&lt;script&gt;</code>标签，而比如node端是没有dom结构的。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> EntryOptionPlugin().apply(compiler);</span><br><span class="line">compiler.hooks.entryOption.call(options.context, options.entry);</span><br></pre></td></tr></table></figure></p>
+<p>这部分是将入口处配置添加调用<code>entryOption</code>钩子。<br>(lib/WebpackOptionsApply.js)</p>
+<ol start="3">
+<li>根据不同接口类型调用不同的类，webpack里到处都是类<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// lib/EntryOptionPlugin.js</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> entry === <span class="string">"string"</span> || <span class="built_in">Array</span>.isArray(entry)) &#123;</span><br><span class="line">        itemToPlugin(context, entry, <span class="string">"main"</span>).apply(compiler);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> entry === <span class="string">"object"</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">const</span> name <span class="keyword">of</span> <span class="built_in">Object</span>.keys(entry)) &#123;</span><br><span class="line">            itemToPlugin(context, entry[name], name).apply(compiler);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> entry === <span class="string">"function"</span>) &#123;</span><br><span class="line">        <span class="keyword">new</span> DynamicEntryPlugin(context, entry).apply(compiler);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这里举例是单文件入口, 在compilation钩子上绑定（即<code>Compiler</code>创建<code>compilation</code>后调用）回调，指定当前依赖的模块生成方法。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">compiler.hooks.compilation.tap(</span><br><span class="line">    <span class="string">"SingleEntryPlugin"</span>,</span><br><span class="line">    (compilation, &#123; normalModuleFactory &#125;) =&gt; &#123;</span><br><span class="line">        compilation.dependencyFactories.set(</span><br><span class="line">            SingleEntryDependency,</span><br><span class="line">            normalModuleFactory</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>(lib/SingleEntryPlugin.js)</p>
+<ol start="4">
+<li>创建<code>compilation</code> (lib/Compiler.js). <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> compilation = <span class="keyword">this</span>.createCompilation();</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// lib/SingleEntryPlugin.js</span></span><br><span class="line">    compiler.hooks.make.tapAsync(</span><br><span class="line">        <span class="string">"SingleEntryPlugin"</span>,</span><br><span class="line">        (compilation, callback) =&gt; &#123;</span><br><span class="line">            <span class="keyword">const</span> &#123; entry, name, context &#125; = <span class="keyword">this</span>;</span><br><span class="line">            <span class="keyword">const</span> dep = SingleEntryPlugin.createDependency(entry, name);</span><br><span class="line">            compilation.addEntry(context, dep, name, callback);</span><br><span class="line">        &#125;</span><br><span class="line">    );</span><br></pre></td></tr></table></figure>
+<p>上面这段是之前注册的，但是会在<code>compilation</code>创建完成前调用，是个异步钩子。<code>compilation</code>创建好后传入，它会将入口创建一个依赖。</p>
+<ol start="5">
+<li>开始执行<code>addEntry()</code>方法，在<code>addEntry</code>方法里调用<code>_addModuleChain</code>，将当前入口文件创建模块<code>moduleFactory.create</code>，模块创建好后处理当前模块的依赖项<code>this.processModuleDependencies</code>. 将依赖创建模块后再依次解析模块的依赖。（lib/Compilation.js）</li>
+</ol>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>主要还是Sean的课程 <a href="https://frontendmasters.com/courses/webpack-plugins/" target="_blank" rel="noopener">webpack-plugins</a></p>
+<p><a href="https://medium.com/webpack/the-contributors-guide-to-webpack-part-2-9fd5e658e08c" target="_blank" rel="noopener">contribute-to-webpack</a></p>
 
       
     </div>
@@ -536,7 +539,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/vue/" rel="tag"># vue</a>
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
           
         </div>
       
@@ -549,8 +552,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/10/vue-global-sass/" rel="next" title="vue项目如何全局引入scss/sass文件">
-                <i class="fa fa-chevron-left"></i> vue项目如何全局引入scss/sass文件
+              <a href="/2019/05/01/es-module/" rel="next" title="深入理解es module">
+                <i class="fa fa-chevron-left"></i> 深入理解es module
               </a>
             
           </div>
@@ -558,10 +561,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/15/understand-http-cache/" rel="prev" title="初探HTTP缓存👀">
-                初探HTTP缓存👀 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -751,7 +750,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#kye"><span class="nav-number">1.</span> <span class="nav-text">kye</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#就地复用的弊端"><span class="nav-number">2.</span> <span class="nav-text">就地复用的弊端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#key的作用"><span class="nav-number">3.</span> <span class="nav-text">key的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#key的其他用途"><span class="nav-number">4.</span> <span class="nav-text">key的其他用途</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">6.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tapable"><span class="nav-number">1.</span> <span class="nav-text">Tapable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compiler"><span class="nav-number">2.</span> <span class="nav-text">Compiler</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compilation"><span class="nav-number">3.</span> <span class="nav-text">Compilation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Resolver"><span class="nav-number">4.</span> <span class="nav-text">Resolver</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ModuleFactory"><span class="nav-number">5.</span> <span class="nav-text">ModuleFactory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Parser"><span class="nav-number">6.</span> <span class="nav-text">Parser</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Template"><span class="nav-number">7.</span> <span class="nav-text">Template</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作流程"><span class="nav-number">8.</span> <span class="nav-text">工作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">9.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
