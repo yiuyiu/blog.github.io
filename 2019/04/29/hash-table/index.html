@@ -99,14 +99,14 @@
   <meta name="description" content="散列表是什么散列表基本思想是将key按照一定方法（hash function）映射到数组的index，数组按照index访问是可以实现常数级的复杂度。散列表是经典的时间和空间的tradeoff. 如果空间无限则可以避免下面出现的冲突问题，如果时间无限，每次遍历储存结构即可。在java中有java.util.HashMap, java.util.IdentityHashMap这些数据结构的应用。 为">
 <meta name="keywords" content="java,hash table">
 <meta property="og:type" content="article">
-<meta property="og:title" content="散列表（hash table）">
+<meta property="og:title" content="散列表（hash table）基础">
 <meta property="og:url" content="http://yoursite.com/2019/04/29/hash-table/index.html">
 <meta property="og:site_name" content="嘻嘻的后花园">
 <meta property="og:description" content="散列表是什么散列表基本思想是将key按照一定方法（hash function）映射到数组的index，数组按照index访问是可以实现常数级的复杂度。散列表是经典的时间和空间的tradeoff. 如果空间无限则可以避免下面出现的冲突问题，如果时间无限，每次遍历储存结构即可。在java中有java.util.HashMap, java.util.IdentityHashMap这些数据结构的应用。 为">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-01T07:04:20.807Z">
+<meta property="og:updated_time" content="2019-05-12T02:36:32.557Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="散列表（hash table）">
+<meta name="twitter:title" content="散列表（hash table）基础">
 <meta name="twitter:description" content="散列表是什么散列表基本思想是将key按照一定方法（hash function）映射到数组的index，数组按照index访问是可以实现常数级的复杂度。散列表是经典的时间和空间的tradeoff. 如果空间无限则可以避免下面出现的冲突问题，如果时间无限，每次遍历储存结构即可。在java中有java.util.HashMap, java.util.IdentityHashMap这些数据结构的应用。 为">
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>散列表（hash table） | 嘻嘻的后花园</title>
+  <title>散列表（hash table）基础 | 嘻嘻的后花园</title>
   
 
 
@@ -190,7 +190,7 @@
     </div>
     
       
-        <p class="site-subtitle">回头不做，更待何时</p>
+        <h1 class="site-subtitle" itemprop="description">回头不做，更待何时</h1>
       
     
     
@@ -368,7 +368,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="嘻嘻">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="前端博客">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -381,11 +381,11 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">散列表（hash table）
+          <h2 class="post-title" itemprop="name headline">散列表（hash table）基础
 
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -424,7 +424,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-01 15:04:20" itemprop="dateModified" datetime="2019-05-01T15:04:20+08:00">2019-05-01</time>
+                <time title="修改时间：2019-05-12 10:36:32" itemprop="dateModified" datetime="2019-05-12T10:36:32+08:00">2019-05-12</time>
               
             
           </span>
@@ -441,14 +441,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cs/" itemprop="url" rel="index"><span itemprop="name">cs</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cs/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a></span>
 
                 
                 
@@ -550,9 +543,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"># java</a>
+            <a href="/tags/java/" rel="tag">🔖 java</a>
           
-            <a href="/tags/hash-table/" rel="tag"># hash table</a>
+            <a href="/tags/hash-table/" rel="tag">🔖 hash table</a>
           
         </div>
       
@@ -636,7 +629,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">嘻嘻</p>
-              <div class="site-description motion-element" itemprop="description"></div>
+              <div class="site-description motion-element" itemprop="description">前端博客</div>
           </div>
 
           
@@ -646,7 +639,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -679,9 +672,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -714,7 +705,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -800,15 +797,9 @@
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.0</div>
 
 
 
@@ -1263,6 +1254,16 @@
   
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
 
   
 

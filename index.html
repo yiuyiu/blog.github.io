@@ -96,13 +96,17 @@
 
 
 
-  <meta property="og:type" content="website">
+  <meta name="description" content="前端博客">
+<meta name="keywords" content="前端，后端，计算机，语言">
+<meta property="og:type" content="website">
 <meta property="og:title" content="嘻嘻的后花园">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="嘻嘻的后花园">
+<meta property="og:description" content="前端博客">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="嘻嘻的后花园">
+<meta name="twitter:description" content="前端博客">
 
 
 
@@ -120,7 +124,7 @@
   };
 </script>
 
-  <title>嘻嘻的后花园</title>
+  <title>嘻嘻的后花园 – 回头不做，更待何时</title>
   
 
 
@@ -186,7 +190,7 @@
     </div>
     
       
-        <p class="site-subtitle">回头不做，更待何时</p>
+        <h1 class="site-subtitle" itemprop="description">回头不做，更待何时</h1>
       
     
     
@@ -360,11 +364,11 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/06/how-does-webpack4-work/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/08/redux-fundamental/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="嘻嘻">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="前端博客">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -377,13 +381,190 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/08/redux-fundamental/" class="post-title-link" itemprop="url">redux基础</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-08 17:13:47 / 修改时间：17:21:38" itemprop="dateCreated datePublished" datetime="2019-06-08T17:13:47+08:00">2019-06-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/frontend/" itemprop="url" rel="index"><span itemprop="name">frontend</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/frontend/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="对象数组操作"><a href="#对象数组操作" class="headerlink" title="对象数组操作"></a>对象数组操作</h2><p>这部分是redux的先知知识</p>
+<h3 id="如何保持对象类型数据不可变"><a href="#如何保持对象类型数据不可变" class="headerlink" title="如何保持对象类型数据不可变"></a>如何保持对象类型数据不可变</h3><p>redux里用了很多纯函数的概念，纯函数是没有副作用的函数，没有副作用的函数，无论执行多少次返回都是一样。</p>
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><h5 id="数组添加元素"><a href="#数组添加元素" class="headerlink" title="数组添加元素"></a>数组添加元素</h5><p><code>push()</code>会更改原数组，采用<code>concat</code>或spread操作符<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> addCounter = <span class="function">(<span class="params">list</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// return list.concat([0]); // old way</span></span><br><span class="line">  <span class="keyword">return</span> [...list, <span class="number">0</span>]; <span class="comment">// ES6 way</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> testAddCounter = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> listBefore = [];</span><br><span class="line">  <span class="keyword">const</span> listAfter = [<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">  deepFreeze(listBefore);</span><br><span class="line"></span><br><span class="line">  expect(</span><br><span class="line">    addCounter(listBefore)</span><br><span class="line">  ).toEqual(listAfter);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">testAddCounter();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'All tests passed'</span>)</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://egghead.io/lessons/javascript-redux-avoiding-array-mutations-with-concat-slice-and-spread" target="_blank" rel="noopener">Dan</a>视频里采用了<a href="https://github.com/mjackson/expect" target="_blank" rel="noopener">expect</a>和<a href="https://github.com/substack/deep-freeze" target="_blank" rel="noopener">deepfreeze</a>库，前者是断言用，deepfreeze用来对对象进行递归<code>freeze</code>.<br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/06/08/redux-fundamental/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </p></div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/06/how-does-webpack4-work/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="嘻嘻">
+      <meta itemprop="description" content="前端博客">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="嘻嘻的后花园">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
                 
                 
                 <a href="/2019/05/06/how-does-webpack4-work/" class="post-title-link" itemprop="url">webpack4插件及工作流程</a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -541,7 +722,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="嘻嘻">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="前端博客">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -554,13 +735,13 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
                 
                 <a href="/2019/05/01/es-module/" class="post-title-link" itemprop="url">深入理解es module</a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -599,7 +780,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-03 17:20:16" itemprop="dateModified" datetime="2019-05-03T17:20:16+08:00">2019-05-03</time>
+                <time title="修改时间：2019-05-17 22:10:16" itemprop="dateModified" datetime="2019-05-17T22:10:16+08:00">2019-05-17</time>
               
             
           </span>
@@ -660,6 +841,8 @@
       
         
           <h2 id="模块系统的作用"><a href="#模块系统的作用" class="headerlink" title="模块系统的作用"></a>模块系统的作用</h2><p>传统script标签的代码加载容易导致全局作用域污染，而且要维系一系列script的书写顺序，项目一大，维护起来越来越困难。模块系统通过声明式的暴露和引用模块使得各个模块之间的依赖变得明显。</p>
+<h2 id="es-module的写法"><a href="#es-module的写法" class="headerlink" title="es module的写法"></a>es module的写法</h2><h3 id="named-export"><a href="#named-export" class="headerlink" title="named export"></a>named export</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> B = <span class="number">123</span>;</span><br><span class="line"><span class="comment">// b.js</span></span><br><span class="line"><span class="keyword">import</span> &#123;A,B&#125; <span class="keyword">from</span> <span class="string">"a.js"</span></span><br><span class="line"><span class="comment">// 这里用到了解构 destructuring</span></span><br></pre></td></tr></table></figure>
+<h3 id="default-export"><a href="#default-export" class="headerlink" title="default export"></a>default export</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;&#125;</span><br><span class="line"><span class="comment">// b.js</span></span><br><span class="line"><span class="keyword">import</span> B <span class="keyword">from</span> <span class="string">'./a.js'</span></span><br><span class="line"><span class="comment">// 这里随便取什么名字</span></span><br></pre></td></tr></table></figure>
 <h2 id="es-module如何工作的"><a href="#es-module如何工作的" class="headerlink" title="es module如何工作的"></a>es module如何工作的</h2><p>这部分推荐去看<a href="https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/" target="_blank" rel="noopener">es-modules-a-cartoon-deep-dive</a>，原文里有图，以下的内容是个人理解整理。</p>
 <p><strong>分三步：</strong></p>
 <ol>
@@ -734,7 +917,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="嘻嘻">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="前端博客">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -747,13 +930,13 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
                 
                 <a href="/2019/05/01/webpack4-fundamental/" class="post-title-link" itemprop="url">webpack4 基础🐱</a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -792,7 +975,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-05 19:36:51" itemprop="dateModified" datetime="2019-05-05T19:36:51+08:00">2019-05-05</time>
+                <time title="修改时间：2019-05-06 18:00:06" itemprop="dateModified" datetime="2019-05-06T18:00:06+08:00">2019-05-06</time>
               
             
           </span>
@@ -928,7 +1111,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="嘻嘻">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="前端博客">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -941,13 +1124,13 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
                 
                 <a href="/2019/04/30/lazy-load/" class="post-title-link" itemprop="url">懒加载</a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1101,7 +1284,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="嘻嘻">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="前端博客">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -1114,13 +1297,13 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/04/29/hash-table/" class="post-title-link" itemprop="url">散列表（hash table）</a>
+                <a href="/2019/04/29/hash-table/" class="post-title-link" itemprop="url">散列表（hash table）基础</a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1159,7 +1342,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-01 15:04:20" itemprop="dateModified" datetime="2019-05-01T15:04:20+08:00">2019-05-01</time>
+                <time title="修改时间：2019-05-12 10:36:32" itemprop="dateModified" datetime="2019-05-12T10:36:32+08:00">2019-05-12</time>
               
             
           </span>
@@ -1176,14 +1359,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cs/" itemprop="url" rel="index"><span itemprop="name">cs</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cs/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a></span>
 
                 
                 
@@ -1295,7 +1471,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="嘻嘻">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="前端博客">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -1308,13 +1484,13 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
                 
                 <a href="/2019/04/25/understanding-grid-2/" class="post-title-link" itemprop="url">初涉grid布局🐱（二）</a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1482,7 +1658,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="嘻嘻">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="前端博客">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -1495,13 +1671,13 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
                 
                 <a href="/2019/04/25/understanding-grid-1/" class="post-title-link" itemprop="url">初涉grid布局🐱（一）</a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1671,7 +1847,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="嘻嘻">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="前端博客">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -1684,13 +1860,13 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
                 
                 <a href="/2019/04/15/understanding-https/" class="post-title-link" itemprop="url">小白眼中的https👀</a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1837,7 +2013,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="嘻嘻">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="前端博客">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -1850,13 +2026,13 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
                 
                 <a href="/2019/04/15/understand-http-cache/" class="post-title-link" itemprop="url">初探HTTP缓存👀</a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1998,202 +2174,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/12/vue-key/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="嘻嘻">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="嘻嘻的后花园">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/04/12/vue-key/" class="post-title-link" itemprop="url">如何理解vue的key属性</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-04-12 10:50:16" itemprop="dateCreated datePublished" datetime="2019-04-12T10:50:16+08:00">2019-04-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-27 16:55:50" itemprop="dateModified" datetime="2019-04-27T16:55:50+08:00">2019-04-27</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/frontend/" itemprop="url" rel="index"><span itemprop="name">frontend</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/frontend/framework/" itemprop="url" rel="index"><span itemprop="name">framework</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/frontend/framework/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="kye"><a href="#kye" class="headerlink" title="kye"></a>kye</h3><p>如果没有这个属性的时候vue应用 in-place patch（就地复用）策略。列表里的顺序发生改变的时候比如shuffle（列表打乱）的时候，vue为了提升性能，不会移动dom元素，只是更新相应元素的内容节点。</p>
-<h3 id="就地复用的弊端"><a href="#就地复用的弊端" class="headerlink" title="就地复用的弊端"></a>就地复用的弊端</h3><blockquote>
-<p>这个默认的模式是高效的，但是只适用于不依赖子组件状态或临时 DOM 状态 (例如：表单输入值) 的列表渲染输出。</p>
-</blockquote>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/04/12/vue-key/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2230,7 +2210,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">嘻嘻</p>
-              <div class="site-description motion-element" itemprop="description"></div>
+              <div class="site-description motion-element" itemprop="description">前端博客</div>
           </div>
 
           
@@ -2240,7 +2220,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2273,9 +2253,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2308,7 +2286,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2377,15 +2361,9 @@
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.0</div>
 
 
 
@@ -2834,6 +2812,16 @@
   
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
 
   
 

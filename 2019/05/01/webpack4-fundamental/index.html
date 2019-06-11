@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="嘻嘻的后花园">
 <meta property="og:description" content="根据Sean在 frontend masters上的课程加上个人的理解Sean 是 webpack 的核心贡献者哦😯课程代码 为什么要使用webpack传统方法在浏览器中执行JS 一个功能加载一个script 标签 e.g. Jquery , Swiper 加载一个巨大的JS文件。  script标签加载的弊端 扩展性太差，标签很多的情况下维持标签的顺序很痛苦。 全局变量污染 加载过多的JS文件">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-05T11:36:51.758Z">
+<meta property="og:updated_time" content="2019-05-06T10:00:06.882Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack4 基础🐱">
 <meta name="twitter:description" content="根据Sean在 frontend masters上的课程加上个人的理解Sean 是 webpack 的核心贡献者哦😯课程代码 为什么要使用webpack传统方法在浏览器中执行JS 一个功能加载一个script 标签 e.g. Jquery , Swiper 加载一个巨大的JS文件。  script标签加载的弊端 扩展性太差，标签很多的情况下维持标签的顺序很痛苦。 全局变量污染 加载过多的JS文件">
@@ -190,7 +190,7 @@
     </div>
     
       
-        <p class="site-subtitle">回头不做，更待何时</p>
+        <h1 class="site-subtitle" itemprop="description">回头不做，更待何时</h1>
       
     
     
@@ -368,7 +368,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="嘻嘻">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="前端博客">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -381,11 +381,11 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">webpack4 基础🐱
+          <h2 class="post-title" itemprop="name headline">webpack4 基础🐱
 
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -424,7 +424,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-05 19:36:51" itemprop="dateModified" datetime="2019-05-05T19:36:51+08:00">2019-05-05</time>
+                <time title="修改时间：2019-05-06 18:00:06" itemprop="dateModified" datetime="2019-05-06T18:00:06+08:00">2019-05-06</time>
               
             
           </span>
@@ -569,6 +569,7 @@
 <li>有助于提升SEO，google会降低加载慢的网站的权重</li>
 </ol>
 <p>webpack会将<code>import()</code>引用的模块打包到单独打包到输出目录下，webpack内置的<code>acorn</code>解析器默认是只解析stage4的，<code>import()</code>仍然在stage3，<a href="https://github.com/tc39/proposals" target="_blank" rel="noopener">proposals</a>。这是因为webpack引用了<code>acorn-dynamic-import</code>可以支持在不使用babel的情况下解析<code>import()</code>语法。如果项目中使用了<code>babel-loader</code>需要再配置<code>@babel/plugin-syntax-dynamic-import</code>，否则babel会报错，因为babel也是需要将代码解析转换成抽象语法树的。<br>webpack代码拆分分为静态和动态代码拆分，但是无论哪种，都是将异步请求的模块提前打包到输出目录中。</p>
+<p><em>ps:chrome中可以查看code coverage查看当前页面的代码使用率</em></p>
 <h3 id="静态代码拆分（static-code-splitting）"><a href="#静态代码拆分（static-code-splitting）" class="headerlink" title="静态代码拆分（static code splitting）"></a>静态代码拆分（static code splitting）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line">    <span class="keyword">const</span> getFooter = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./footer'</span>);</span><br><span class="line">    button.addEventListener(<span class="string">'click'</span>,e=&gt;&#123;</span><br><span class="line">        getFooter().then(<span class="function"><span class="params">m</span>=&gt;</span>&#123;</span><br><span class="line">            <span class="built_in">document</span>.body.appendChild(m.footer)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line"><span class="comment">// footer.js</span></span><br><span class="line"><span class="keyword">const</span> footer = <span class="built_in">document</span>.createElement(<span class="string">"footer"</span>);</span><br><span class="line"><span class="keyword">export</span> &#123; footer &#125;;</span><br></pre></td></tr></table></figure>
 <p><code>import()</code>返回的是一个<code>promise</code></p>
 <h3 id="动态代码拆分（dynamic-code-splitting）"><a href="#动态代码拆分（dynamic-code-splitting）" class="headerlink" title="动态代码拆分（dynamic code splitting）"></a>动态代码拆分（dynamic code splitting）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> setButtonStyle = <span class="function"><span class="params">color</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">`./button-style/<span class="subst">$&#123;color&#125;</span>`</span>);</span><br></pre></td></tr></table></figure>
@@ -599,7 +600,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/webpack/" rel="tag"># webpack</a>
+            <a href="/tags/webpack/" rel="tag">🔖 webpack</a>
           
         </div>
       
@@ -683,7 +684,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">嘻嘻</p>
-              <div class="site-description motion-element" itemprop="description"></div>
+              <div class="site-description motion-element" itemprop="description">前端博客</div>
           </div>
 
           
@@ -693,7 +694,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -726,9 +727,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -761,7 +760,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -847,15 +852,9 @@
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.0</div>
 
 
 
@@ -1310,6 +1309,16 @@
   
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
 
   
 

@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="模块系统的作用传统script标签的代码加载容易导致全局作用域污染，而且要维系一系列script的书写顺序，项目一大，维护起来越来越困难。模块系统通过声明式的暴露和引用模块使得各个模块之间的依赖变得明显。 es module如何工作的这部分推荐去看es-modules-a-cartoon-deep-dive，原文里有图，以下的内容是个人理解整理。 分三步：  构造，寻找并且下载所有的文件并且解析成">
+  <meta name="description" content="模块系统的作用传统script标签的代码加载容易导致全局作用域污染，而且要维系一系列script的书写顺序，项目一大，维护起来越来越困难。模块系统通过声明式的暴露和引用模块使得各个模块之间的依赖变得明显。 es module的写法named export123456// a.jsexport class A&amp;#123;&amp;#125;export const B = 123;// b.jsimport">
 <meta name="keywords" content="module">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解es module">
 <meta property="og:url" content="http://yoursite.com/2019/05/01/es-module/index.html">
 <meta property="og:site_name" content="嘻嘻的后花园">
-<meta property="og:description" content="模块系统的作用传统script标签的代码加载容易导致全局作用域污染，而且要维系一系列script的书写顺序，项目一大，维护起来越来越困难。模块系统通过声明式的暴露和引用模块使得各个模块之间的依赖变得明显。 es module如何工作的这部分推荐去看es-modules-a-cartoon-deep-dive，原文里有图，以下的内容是个人理解整理。 分三步：  构造，寻找并且下载所有的文件并且解析成">
+<meta property="og:description" content="模块系统的作用传统script标签的代码加载容易导致全局作用域污染，而且要维系一系列script的书写顺序，项目一大，维护起来越来越困难。模块系统通过声明式的暴露和引用模块使得各个模块之间的依赖变得明显。 es module的写法named export123456// a.jsexport class A&amp;#123;&amp;#125;export const B = 123;// b.jsimport">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-03T09:20:16.477Z">
+<meta property="og:updated_time" content="2019-05-17T14:10:16.582Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解es module">
-<meta name="twitter:description" content="模块系统的作用传统script标签的代码加载容易导致全局作用域污染，而且要维系一系列script的书写顺序，项目一大，维护起来越来越困难。模块系统通过声明式的暴露和引用模块使得各个模块之间的依赖变得明显。 es module如何工作的这部分推荐去看es-modules-a-cartoon-deep-dive，原文里有图，以下的内容是个人理解整理。 分三步：  构造，寻找并且下载所有的文件并且解析成">
+<meta name="twitter:description" content="模块系统的作用传统script标签的代码加载容易导致全局作用域污染，而且要维系一系列script的书写顺序，项目一大，维护起来越来越困难。模块系统通过声明式的暴露和引用模块使得各个模块之间的依赖变得明显。 es module的写法named export123456// a.jsexport class A&amp;#123;&amp;#125;export const B = 123;// b.jsimport">
 
 
 
@@ -190,7 +190,7 @@
     </div>
     
       
-        <p class="site-subtitle">回头不做，更待何时</p>
+        <h1 class="site-subtitle" itemprop="description">回头不做，更待何时</h1>
       
     
     
@@ -368,7 +368,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="嘻嘻">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="前端博客">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -381,11 +381,11 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">深入理解es module
+          <h2 class="post-title" itemprop="name headline">深入理解es module
 
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -424,7 +424,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-03 17:20:16" itemprop="dateModified" datetime="2019-05-03T17:20:16+08:00">2019-05-03</time>
+                <time title="修改时间：2019-05-17 22:10:16" itemprop="dateModified" datetime="2019-05-17T22:10:16+08:00">2019-05-17</time>
               
             
           </span>
@@ -484,6 +484,8 @@
 
       
         <h2 id="模块系统的作用"><a href="#模块系统的作用" class="headerlink" title="模块系统的作用"></a>模块系统的作用</h2><p>传统script标签的代码加载容易导致全局作用域污染，而且要维系一系列script的书写顺序，项目一大，维护起来越来越困难。模块系统通过声明式的暴露和引用模块使得各个模块之间的依赖变得明显。</p>
+<h2 id="es-module的写法"><a href="#es-module的写法" class="headerlink" title="es module的写法"></a>es module的写法</h2><h3 id="named-export"><a href="#named-export" class="headerlink" title="named export"></a>named export</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> B = <span class="number">123</span>;</span><br><span class="line"><span class="comment">// b.js</span></span><br><span class="line"><span class="keyword">import</span> &#123;A,B&#125; <span class="keyword">from</span> <span class="string">"a.js"</span></span><br><span class="line"><span class="comment">// 这里用到了解构 destructuring</span></span><br></pre></td></tr></table></figure>
+<h3 id="default-export"><a href="#default-export" class="headerlink" title="default export"></a>default export</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;&#125;</span><br><span class="line"><span class="comment">// b.js</span></span><br><span class="line"><span class="keyword">import</span> B <span class="keyword">from</span> <span class="string">'./a.js'</span></span><br><span class="line"><span class="comment">// 这里随便取什么名字</span></span><br></pre></td></tr></table></figure>
 <h2 id="es-module如何工作的"><a href="#es-module如何工作的" class="headerlink" title="es module如何工作的"></a>es module如何工作的</h2><p>这部分推荐去看<a href="https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/" target="_blank" rel="noopener">es-modules-a-cartoon-deep-dive</a>，原文里有图，以下的内容是个人理解整理。</p>
 <p><strong>分三步：</strong></p>
 <ol>
@@ -500,7 +502,7 @@
 <p>ps: 在node中因为没有浏览器这种类似打tag的形式，有种方案是模块文件是<code>.mjs</code>后缀结尾的方案，不过目前尚未敲定。</p>
 <p>解析模块文件为模块记录，找到依赖的模块再去下载模块然后解析成模块记录，直到所有的模块都解析成模块记录为止。模块记录会存在当前全局的一个模块映射里（Module Map）,可以理解成一个缓存，下次再有相同url的模块请求就直接从模块映射里拿出模块记录即可。</p>
 <h3 id="实例化阶段"><a href="#实例化阶段" class="headerlink" title="实例化阶段"></a>实例化阶段</h3><p>将上面得到的模块记录类实例化。<br>首先在内存中指定位置给各个模块的<code>export</code>导出的变量或者函数，接着将模块中对应的<code>import</code>部分同样指向对应的<code>export</code>的内存地址。<br>举个🌰<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> &#123;obj&#125; <span class="keyword">from</span> <span class="string">"./obj.js"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// obj.js</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;<span class="attr">a</span>: <span class="number">123</span>&#125;;</span><br><span class="line"><span class="keyword">export</span> &#123;obj&#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>obj.js</code>文件里导出的<code>obj</code>和<code>main.js</code>文件里引用的<code>obj</code>是指向同一个内存地址的，这中方法就是动态绑定（live binding）。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">'module'</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">import</span> &#123;obj&#125; <span class="keyword">from</span> <span class="string">"./obj.js"</span></span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(obj);  <span class="comment">//&#123;a: 123&#125;</span></span></span><br><span class="line"><span class="javascript">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">   <span class="built_in">console</span>.log(obj)  <span class="comment">//&#123;b: 233&#125;</span></span></span><br><span class="line"><span class="undefined">  &#125;, 2000);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><code>obj.js</code>文件里导出的<code>obj</code>和<code>main.js</code>文件里引用的<code>obj</code>是指向同一个内存地址的，这种方法就是动态绑定（live binding）。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">'module'</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">import</span> &#123;obj&#125; <span class="keyword">from</span> <span class="string">"./obj.js"</span></span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(obj);  <span class="comment">//&#123;a: 123&#125;</span></span></span><br><span class="line"><span class="javascript">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">   <span class="built_in">console</span>.log(obj)  <span class="comment">//&#123;b: 233&#125;</span></span></span><br><span class="line"><span class="undefined">  &#125;, 2000);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    a: <span class="number">123</span></span><br><span class="line">&#125;;</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    obj = &#123; <span class="attr">b</span>: <span class="number">233</span> &#125;;</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br><span class="line"><span class="keyword">export</span> &#123; obj &#125;;</span><br></pre></td></tr></table></figure>
 <p>下面我们看下node中同样的代码的效果。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// test1.js</span></span><br><span class="line">    <span class="keyword">var</span> obj = <span class="built_in">require</span>(<span class="string">"./test2.js"</span>);</span><br><span class="line">    <span class="built_in">console</span>.dir(obj); <span class="comment">// &#123;a: 123&#125;</span></span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.dir(obj); <span class="comment">// &#123;a: 123&#125;</span></span><br><span class="line">    &#125;, <span class="number">2000</span>);</span><br><span class="line"><span class="comment">// test2.js</span></span><br><span class="line">    <span class="keyword">let</span> obj = &#123; <span class="attr">a</span>: <span class="number">123</span> &#125;;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    obj = &#123; <span class="attr">b</span>: <span class="number">233</span> &#125;;</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">    <span class="built_in">module</span>.exports = obj;</span><br></pre></td></tr></table></figure></p>
 <p>在commonJS中<code>require</code>一个对象是在内存中复制一份导出模块的对象。动态绑定主要解决的问题就是循环引用的问题，循环引用在下面的执行阶段进行解释。<br><em>注意：</em><br>es module中可以在模块导出的部分更改导出值如上面代码所示，但是不能在引入部分更改。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;obj&#125; <span class="keyword">from</span> <span class="string">"./sum.js"</span></span><br><span class="line">obj = <span class="string">'233'</span>  <span class="comment">// Uncaught TypeError: Assignment to constant variable.</span></span><br></pre></td></tr></table></figure></p>
@@ -544,7 +546,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/module/" rel="tag"># module</a>
+            <a href="/tags/module/" rel="tag">🔖 module</a>
           
         </div>
       
@@ -628,7 +630,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">嘻嘻</p>
-              <div class="site-description motion-element" itemprop="description"></div>
+              <div class="site-description motion-element" itemprop="description">前端博客</div>
           </div>
 
           
@@ -638,7 +640,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -671,9 +673,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -706,7 +706,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -759,7 +765,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模块系统的作用"><span class="nav-number">1.</span> <span class="nav-text">模块系统的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#es-module如何工作的"><span class="nav-number">2.</span> <span class="nav-text">es module如何工作的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造阶段（Construction）"><span class="nav-number">2.1.</span> <span class="nav-text">构造阶段（Construction）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解释（interpret）import后的模块指示符（module-specifier）成实际url或者文件地址"><span class="nav-number">2.1.1.</span> <span class="nav-text">解释（interpret）import后的模块指示符（module specifier）成实际url或者文件地址</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#模块指示符里的变量"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">模块指示符里的变量</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器根据url下载文件或者node根据文件地址去加载文件"><span class="nav-number">2.1.2.</span> <span class="nav-text">浏览器根据url下载文件或者node根据文件地址去加载文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将文件解析成模块记录"><span class="nav-number">2.1.3.</span> <span class="nav-text">将文件解析成模块记录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例化阶段"><span class="nav-number">2.2.</span> <span class="nav-text">实例化阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行阶段（evaluate）"><span class="nav-number">2.3.</span> <span class="nav-text">执行阶段（evaluate）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#循环引用问题"><span class="nav-number">2.3.1.</span> <span class="nav-text">循环引用问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#es-module的好处"><span class="nav-number">3.</span> <span class="nav-text">es module的好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#es-module的坏处"><span class="nav-number">4.</span> <span class="nav-text">es module的坏处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#待解决问题"><span class="nav-number">5.</span> <span class="nav-text">待解决问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模块系统的作用"><span class="nav-number">1.</span> <span class="nav-text">模块系统的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#es-module的写法"><span class="nav-number">2.</span> <span class="nav-text">es module的写法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#named-export"><span class="nav-number">2.1.</span> <span class="nav-text">named export</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#default-export"><span class="nav-number">2.2.</span> <span class="nav-text">default export</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#es-module如何工作的"><span class="nav-number">3.</span> <span class="nav-text">es module如何工作的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造阶段（Construction）"><span class="nav-number">3.1.</span> <span class="nav-text">构造阶段（Construction）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解释（interpret）import后的模块指示符（module-specifier）成实际url或者文件地址"><span class="nav-number">3.1.1.</span> <span class="nav-text">解释（interpret）import后的模块指示符（module specifier）成实际url或者文件地址</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#模块指示符里的变量"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">模块指示符里的变量</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器根据url下载文件或者node根据文件地址去加载文件"><span class="nav-number">3.1.2.</span> <span class="nav-text">浏览器根据url下载文件或者node根据文件地址去加载文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将文件解析成模块记录"><span class="nav-number">3.1.3.</span> <span class="nav-text">将文件解析成模块记录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例化阶段"><span class="nav-number">3.2.</span> <span class="nav-text">实例化阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行阶段（evaluate）"><span class="nav-number">3.3.</span> <span class="nav-text">执行阶段（evaluate）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#循环引用问题"><span class="nav-number">3.3.1.</span> <span class="nav-text">循环引用问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#es-module的好处"><span class="nav-number">4.</span> <span class="nav-text">es module的好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#es-module的坏处"><span class="nav-number">5.</span> <span class="nav-text">es module的坏处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#待解决问题"><span class="nav-number">6.</span> <span class="nav-text">待解决问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
@@ -792,15 +798,9 @@
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.0</div>
 
 
 
@@ -1255,6 +1255,16 @@
   
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
 
   
 
