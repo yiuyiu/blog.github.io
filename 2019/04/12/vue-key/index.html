@@ -96,21 +96,21 @@
 
 
 
-  <meta name="description" content="kye如果没有这个属性的时候vue应用 in-place patch（就地复用）策略。列表里的顺序发生改变的时候比如shuffle（列表打乱）的时候，vue为了提升性能，不会移动dom元素，只是更新相应元素的内容节点。 就地复用的弊端 这个默认的模式是高效的，但是只适用于不依赖子组件状态或临时 DOM 状态 (例如：表单输入值) 的列表渲染输出。">
+  <meta name="description" content="key如果没有这个属性的时候vue应用 in-place patch（就地复用）策略。列表里的顺序发生改变的时候比如shuffle（列表打乱）的时候，vue为了提升性能，不会移动dom元素，只是更新相应元素的内容节点。 就地复用的弊端 这个默认的模式是高效的，但是只适用于不依赖子组件状态或临时 DOM 状态 (例如：表单输入值) 的列表渲染输出。">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何理解vue的key属性">
 <meta property="og:url" content="http://yoursite.com/2019/04/12/vue-key/index.html">
 <meta property="og:site_name" content="嘻嘻的后花园">
-<meta property="og:description" content="kye如果没有这个属性的时候vue应用 in-place patch（就地复用）策略。列表里的顺序发生改变的时候比如shuffle（列表打乱）的时候，vue为了提升性能，不会移动dom元素，只是更新相应元素的内容节点。 就地复用的弊端 这个默认的模式是高效的，但是只适用于不依赖子组件状态或临时 DOM 状态 (例如：表单输入值) 的列表渲染输出。">
+<meta property="og:description" content="key如果没有这个属性的时候vue应用 in-place patch（就地复用）策略。列表里的顺序发生改变的时候比如shuffle（列表打乱）的时候，vue为了提升性能，不会移动dom元素，只是更新相应元素的内容节点。 就地复用的弊端 这个默认的模式是高效的，但是只适用于不依赖子组件状态或临时 DOM 状态 (例如：表单输入值) 的列表渲染输出。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/04/12/vue-key/shuffle_array.gif">
 <meta property="og:image" content="http://yoursite.com/2019/04/12/vue-key/no-key-shuffle.gif">
 <meta property="og:image" content="http://yoursite.com/2019/04/12/vue-key/has-key-shuffle.gif">
-<meta property="og:updated_time" content="2019-04-27T08:55:50.492Z">
+<meta property="og:updated_time" content="2019-11-02T09:33:09.030Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何理解vue的key属性">
-<meta name="twitter:description" content="kye如果没有这个属性的时候vue应用 in-place patch（就地复用）策略。列表里的顺序发生改变的时候比如shuffle（列表打乱）的时候，vue为了提升性能，不会移动dom元素，只是更新相应元素的内容节点。 就地复用的弊端 这个默认的模式是高效的，但是只适用于不依赖子组件状态或临时 DOM 状态 (例如：表单输入值) 的列表渲染输出。">
+<meta name="twitter:description" content="key如果没有这个属性的时候vue应用 in-place patch（就地复用）策略。列表里的顺序发生改变的时候比如shuffle（列表打乱）的时候，vue为了提升性能，不会移动dom元素，只是更新相应元素的内容节点。 就地复用的弊端 这个默认的模式是高效的，但是只适用于不依赖子组件状态或临时 DOM 状态 (例如：表单输入值) 的列表渲染输出。">
 <meta name="twitter:image" content="http://yoursite.com/2019/04/12/vue-key/shuffle_array.gif">
 
 
@@ -428,7 +428,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-27 16:55:50" itemprop="dateModified" datetime="2019-04-27T16:55:50+08:00">2019-04-27</time>
+                <time title="修改时间：2019-11-02 17:33:09" itemprop="dateModified" datetime="2019-11-02T17:33:09+08:00">2019-11-02</time>
               
             
           </span>
@@ -494,7 +494,7 @@
       
 
       
-        <h3 id="kye"><a href="#kye" class="headerlink" title="kye"></a>kye</h3><p>如果没有这个属性的时候vue应用 in-place patch（就地复用）策略。列表里的顺序发生改变的时候比如shuffle（列表打乱）的时候，vue为了提升性能，不会移动dom元素，只是更新相应元素的内容节点。</p>
+        <h3 id="key"><a href="#key" class="headerlink" title="key"></a>key</h3><p>如果没有这个属性的时候vue应用 in-place patch（就地复用）策略。列表里的顺序发生改变的时候比如shuffle（列表打乱）的时候，vue为了提升性能，不会移动dom元素，只是更新相应元素的内容节点。</p>
 <h3 id="就地复用的弊端"><a href="#就地复用的弊端" class="headerlink" title="就地复用的弊端"></a>就地复用的弊端</h3><blockquote>
 <p>这个默认的模式是高效的，但是只适用于不依赖子组件状态或临时 DOM 状态 (例如：表单输入值) 的列表渲染输出。</p>
 </blockquote>
@@ -755,7 +755,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#kye"><span class="nav-number">1.</span> <span class="nav-text">kye</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#就地复用的弊端"><span class="nav-number">2.</span> <span class="nav-text">就地复用的弊端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#key的作用"><span class="nav-number">3.</span> <span class="nav-text">key的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#key的其他用途"><span class="nav-number">4.</span> <span class="nav-text">key的其他用途</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">6.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#key"><span class="nav-number">1.</span> <span class="nav-text">key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#就地复用的弊端"><span class="nav-number">2.</span> <span class="nav-text">就地复用的弊端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#key的作用"><span class="nav-number">3.</span> <span class="nav-text">key的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#key的其他用途"><span class="nav-number">4.</span> <span class="nav-text">key的其他用途</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">6.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
             
 
           </div>
