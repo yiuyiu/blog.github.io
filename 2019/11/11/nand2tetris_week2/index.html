@@ -96,17 +96,21 @@
 
 
 
-  <meta name="description" content="前端博客">
-<meta name="keywords" content="前端，后端，计算机，语言">
-<meta property="og:type" content="website">
-<meta property="og:title" content="嘻嘻的后花园">
-<meta property="og:url" content="http://yoursite.com/tags/grid/index.html">
+  <meta name="description" content="整数的二进制表达通过组合不同数量的1和0可以产生不同种的结果，比如两个1,0 数结合可以产生4个不同的结果，11,10,01,00. 进而可以将其映射到不同的表示提示，可以用其来表示十进制的数字分别对应3,2,1,0k个bit能够表示的数的上限为2*k - 1，可以利用等比数列求和得证。ps: 在计算机中，每次分配的内存通常都是固定位数的bit. 从二进制到十进制64 十进制的数是610 + 4">
+<meta name="keywords" content="nand2tetris">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nand2tetris第二周--布尔算术和ALU">
+<meta property="og:url" content="http://yoursite.com/2019/11/11/nand2tetris_week2/index.html">
 <meta property="og:site_name" content="嘻嘻的后花园">
-<meta property="og:description" content="前端博客">
+<meta property="og:description" content="整数的二进制表达通过组合不同数量的1和0可以产生不同种的结果，比如两个1,0 数结合可以产生4个不同的结果，11,10,01,00. 进而可以将其映射到不同的表示提示，可以用其来表示十进制的数字分别对应3,2,1,0k个bit能够表示的数的上限为2*k - 1，可以利用等比数列求和得证。ps: 在计算机中，每次分配的内存通常都是固定位数的bit. 从二进制到十进制64 十进制的数是610 + 4">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/11/11/nand2tetris_week2/DBF9BC7B-72DA-4D5B-BBC1-A9C6A4BEC032.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/11/nand2tetris_week2/EA08F077-BEA5-44C3-92B5-6C1945F6EB40.png">
+<meta property="og:updated_time" content="2019-11-11T14:43:24.803Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="嘻嘻的后花园">
-<meta name="twitter:description" content="前端博客">
+<meta name="twitter:title" content="nand2tetris第二周--布尔算术和ALU">
+<meta name="twitter:description" content="整数的二进制表达通过组合不同数量的1和0可以产生不同种的结果，比如两个1,0 数结合可以产生4个不同的结果，11,10,01,00. 进而可以将其映射到不同的表示提示，可以用其来表示十进制的数字分别对应3,2,1,0k个bit能够表示的数的上限为2*k - 1，可以利用等比数列求和得证。ps: 在计算机中，每次分配的内存通常都是固定位数的bit. 从二进制到十进制64 十进制的数是610 + 4">
+<meta name="twitter:image" content="http://yoursite.com/2019/11/11/nand2tetris_week2/DBF9BC7B-72DA-4D5B-BBC1-A9C6A4BEC032.png">
 
 
 
@@ -114,7 +118,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/tags/grid/">
+  <link rel="canonical" href="http://yoursite.com/2019/11/11/nand2tetris_week2/">
 
 
 
@@ -124,7 +128,7 @@
   };
 </script>
 
-  <title>标签: grid | 嘻嘻的后花园</title>
+  <title>nand2tetris第二周--布尔算术和ALU | 嘻嘻的后花园</title>
   
 
 
@@ -172,7 +176,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -231,7 +235,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -343,106 +347,218 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>grid<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/11/nand2tetris_week2/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="嘻嘻">
+      <meta itemprop="description" content="前端博客">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="嘻嘻的后花园">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2019/04/25/understanding-grid-2/" itemprop="url">
-            
-              <span itemprop="name">初涉grid布局🐱（二）</span>
-            
-          </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">nand2tetris第二周--布尔算术和ALU
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-25T16:53:18+08:00" content="2019-04-25">
-          04-25
-        </time>
-      </div>
+              
+            
+          </h2>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-11 22:37:00 / 修改时间：22:43:24" itemprop="dateCreated datePublished" datetime="2019-11-11T22:37:00+08:00">2019-11-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-organization/" itemprop="url" rel="index"><span itemprop="name">computer organization</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/2019/04/25/understanding-grid-1/" itemprop="url">
-            
-              <span itemprop="name">初涉grid布局🐱（一）</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-25T16:32:49+08:00" content="2019-04-25">
-          04-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <h3 id="整数的二进制表达"><a href="#整数的二进制表达" class="headerlink" title="整数的二进制表达"></a>整数的二进制表达</h3><p>通过组合不同数量的1和0可以产生不同种的结果，比如两个1,0 数结合可以产生4个不同的结果，11,10,01,00. 进而可以将其映射到不同的表示提示，可以用其来表示十进制的数字分别对应3,2,1,0<br>k个bit能够表示的数的上限为2*k - 1，可以利用等比数列求和得证。ps: 在计算机中，每次分配的内存通常都是固定位数的bit.</p>
+<h4 id="从二进制到十进制"><a href="#从二进制到十进制" class="headerlink" title="从二进制到十进制"></a>从二进制到十进制</h4><p>64 十进制的数是6<em>10 + 4 ，进而二进制的数也可以类似用每个位置上对应的指数值乘后再进行相加<br>1010  即 1</em>2^3+0<em>2^2+1</em>2^1+0*2^0 = 12</p>
+<h4 id="从十进制到二进制"><a href="#从十进制到二进制" class="headerlink" title="从十进制到二进制"></a>从十进制到二进制</h4><p>和上个步骤相反，比如99，可以拆分成2进制的相加为<br>64+32+2+1 则可得出为  1100011<br><a id="more"></a></p>
+<h3 id="二进制数相加"><a href="#二进制数相加" class="headerlink" title="二进制数相加"></a>二进制数相加</h3><p>加减通过硬件可以实现，乘除比较复杂通过软件来实现。<br>通关观察十进制相加，二进制相加，也是相应位数相加且二进制相加一样存在进位(carry). 由于计算机中有bit数限制，相加超出范围的部分则舍去。<br>课程中用了三个chip来层层递进实现相加。<br><strong>half-adder</strong>: 两个bit位相加，产生一个out和一个进位，只存在最右边的两个bit相加。<br><strong>full-adder</strong>: 两个bit位和一个进位bit相加，产生一个out和一个进位，除了最右边两个bit相加其他bit位相加都如此。<br><strong>adder</strong>: 将上面两个结合起来就是两个二进制相加的chip.<br>具体实现和第一周的chip类似，观察true table可以设计出内部的chip结构。</p>
+<h3 id="负数"><a href="#负数" class="headerlink" title="负数"></a>负数</h3><p>将二进制数的第一位用来表示符号(signed binary numbers), 1就是代表数是负的，0是正的。有两种表示负数的方法</p>
+<h4 id="非补码"><a href="#非补码" class="headerlink" title="非补码"></a>非补码</h4><p> Sign-and-Magnitude (SM) notation<br>符号位，剩下的位数表示大小。<br>除第一位表示符号，剩下的bit位表示实际数，比如四位就可以表示<code>0 ~ 7</code>,  <code>-0 ~ -7</code>. 0相当于有两种表示方式.表示范围是 -2^(n-1) ~~ +2^(n-1)</p>
+<h4 id="complement-representation"><a href="#complement-representation" class="headerlink" title="complement representation"></a>complement representation</h4><p>正数的补码表示对应的负数的十进制表示是 2^n - x. (n是bit的数量，这里的n的数量是正数前面加上0的数量)<br>比如0101表示5，-5的表示就用<code>2^4 - 5 = 11</code>, 11的二进制表示就是1011.所以-5在补码表示中就为1011<br><em>ps: 2 to the n  可以表示  2^n</em></p>
+<h4 id="利用补码实现两数相减"><a href="#利用补码实现两数相减" class="headerlink" title="利用补码实现两数相减"></a>利用补码实现两数相减</h4><p>7 - 5 可以表示为 7 + -5, 利用补码表示分别为0111, 1011, 直接相加，溢出的bit位舍去即可得到0010 即 2</p>
+<h4 id="为什么利用补码可以做到"><a href="#为什么利用补码可以做到" class="headerlink" title="为什么利用补码可以做到"></a>为什么利用补码可以做到</h4><p>为什么利用补码可以做到相加即相减的结果。<br>利用了一个modular arithmetic系统，通过对数字加1我们可以循环遍历所有模数里的值，溢出了1就从1开始。就好像时钟一样，11点加上3个小时，就变成了2点。模数就是12。1点往前推3个小时，就相当于1+(12-3) = 10.<br>这里的补码也是同理，减去一个数相当于加上（模数➖这个数）<br>参考<a href="https://math.stackexchange.com/questions/1920772/why-twos-complement-works" target="_blank" rel="noopener">https://math.stackexchange.com/questions/1920772/why-twos-complement-works</a><br>以下距离3个bit<br>000 0<br>001 1<br>010 2<br>011 3<br>100 -4<br>101 -3<br>110 -2<br>111 -1<br>超过最大能表示的正数即➕1后就变成了负的最大依次➕1可以不停循环。<br>记住1000… 表示 -2^(n-1)  111…. 表示 -1 </p>
+<h5 id="如何用chip获得补码"><a href="#如何用chip获得补码" class="headerlink" title="如何用chip获得补码"></a>如何用chip获得补码</h5><p>2^n - x = 1 + （ (2^n - 1) - x ）<br>其中2^n - 1 就是 1111… , 再减去x<br>11111111 -<br>10101100<br>01010011<br>相当于每一位取反flip下。<br>最后再➕1, 可以从最右边的bit位，直到不需要再进为止。</p>
+<h3 id="ALU-arithmetic-logic-unit"><a href="#ALU-arithmetic-logic-unit" class="headerlink" title="ALU (arithmetic logic unit)"></a>ALU (arithmetic logic unit)</h3><p>1945 数学家 John Von Neumann 设计了现代计算的示意图，计算机中的center processing unit里就有ALU.<br>ALU执行算数或者逻辑运算。通过输入两个值，以及执行操作(function) 的control bit(在课程中即下面的zx, nx, zy, ny, f, no可以控制执行不同的方法). 如果是做成一个truth table 就相当于有8列<br>课程中只实现了18种方法，教授们根据他们想要实现的方法反过来推算需要6个control bit. 实际业界可能是由不同的control bit，以及不同的数量的方法，但这是个trade off. 有些方法甚至可以不放在硬件中交由软件根据已有硬件方法去实现。<br>另外zr和ng也是output的一部分，zr会在out等于0时设置为1否则zr设置为0.另外out是负的则ng设为1否则为0.这两个bit的具体作用在以后会说到。<br><img src="/2019/11/11/nand2tetris_week2/DBF9BC7B-72DA-4D5B-BBC1-A9C6A4BEC032.png"><br>[image:E3162B6A-4AF0-457A-B7A5-629FB4510627-27277-00000E14CBC3FA5B/DBF9BC7B-72DA-4D5B-BBC1-A9C6A4BEC032.png]<br>课程中实现的18种方法, z n 可以理解为zeroed negated.<br><em>ps: 课程提供的硬件模拟器可以查看项目附带的内置的ALU.hdl的内部结构（设置不同的control bit, 显示不同的function名字）</em><br><img src="/2019/11/11/nand2tetris_week2/EA08F077-BEA5-44C3-92B5-6C1945F6EB40.png"><br>preset的值都会依次传递给下一个control bit 使用，类似串联的感觉。</p>
+<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><p>x: 0010  (2)<br>y: 0111  (7)<br>执行y-x操作<br>f: 000111<br>ny 是1 y =1000<br>f是1   x+y = 1010</p>
+<blockquote>
+<p>疑问？y - x 即 y + (x的补码)   而在上面中是 !(!y + x)<br>补码是数本身取反加1. </p>
+</blockquote>
+<h3 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h3><p>课程提供的软件如果在当前打开的文件里找不到引用的chip就会从内置的chip里去引用。所以我们引用第一周的chip实际上是从内置chip里去引用的。<br>引用内置的chip的好处是可以排查错误时在最小范围内排查（当然是在内置chip无措的情况下)，还有一点是内置的chip的性能比自己写的好o(╯□╰)o，否则自己写的性能不好的chip层层调用最后可能模拟器就很卡。</p>
+<ol>
+<li>HalfAdder实现两数相加生成sum和carry. 比较简单观察truth table很容易得出</li>
+<li>FullAdder，三数相加生成sum和carry. 利用HalfAdder即可实现</li>
+<li>Add16, 两个16bit数相加，就是利用一堆FullAdder“串联”而成。其实有更有效率的做法，由一系列FullAdder而串联的话，每一位相加都需要之前的结果返回，而有个方法叫<a href="https://en.wikipedia.org/wiki/Carry-lookahead_adder" target="_blank" rel="noopener">carry-lookahead-adder</a>, 可以无须等之前的位数相加的结果就可以进行运算。</li>
+<li>Inc16, 在16bit上加1, 一开始我妄想用FullAdder，其中一个input就是[…..,1]这种形式，发现不行，在chip的input 和output的右边不能出现这种形式，不过可以出现true或者false 分别代表1和0. 最后就是一堆HalfAdder“串联”</li>
+<li>ALU,  ALU本身的输出并不难，主要利用<code>Mux</code>实现了判断。关键判断<code>zr</code>(1 if (out == 0), 0 otherwise) 绞尽脑汁在想怎么把out一个16bit的数转换成一个1和0. 后来想到正数的求反再+1的第一个bit肯定是1，只有0才能保证第一个bit是0.  </li>
+</ol>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nand2tetris/" rel="tag">🔖 nand2tetris</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/03/nand2tetris_week1/" rel="next" title="nand2tetris第一周--布尔运算和逻辑门">
+                <i class="fa fa-chevron-left"></i> nand2tetris第一周--布尔运算和逻辑门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -462,8 +578,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -597,6 +722,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#整数的二进制表达"><span class="nav-number">1.</span> <span class="nav-text">整数的二进制表达</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#从二进制到十进制"><span class="nav-number">1.1.</span> <span class="nav-text">从二进制到十进制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从十进制到二进制"><span class="nav-number">1.2.</span> <span class="nav-text">从十进制到二进制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二进制数相加"><span class="nav-number">2.</span> <span class="nav-text">二进制数相加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#负数"><span class="nav-number">3.</span> <span class="nav-text">负数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#非补码"><span class="nav-number">3.1.</span> <span class="nav-text">非补码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#complement-representation"><span class="nav-number">3.2.</span> <span class="nav-text">complement representation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用补码实现两数相减"><span class="nav-number">3.3.</span> <span class="nav-text">利用补码实现两数相减</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么利用补码可以做到"><span class="nav-number">3.4.</span> <span class="nav-text">为什么利用补码可以做到</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如何用chip获得补码"><span class="nav-number">3.4.1.</span> <span class="nav-text">如何用chip获得补码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ALU-arithmetic-logic-unit"><span class="nav-number">4.</span> <span class="nav-text">ALU (arithmetic logic unit)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#举例"><span class="nav-number">4.1.</span> <span class="nav-text">举例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目"><span class="nav-number">5.</span> <span class="nav-text">项目</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -721,6 +863,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
 
   
 
@@ -736,6 +882,8 @@
 
   
 
+
+  
 
 
   
