@@ -364,6 +364,179 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/nand2tetris-week3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="嘻嘻">
+      <meta itemprop="description" content="前端博客">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="嘻嘻的后花园">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/11/17/nand2tetris-week3/" class="post-title-link" itemprop="url">nand2tetris_week3</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-17 20:48:19 / 修改时间：20:51:32" itemprop="dateCreated datePublished" datetime="2019-11-17T20:48:19+08:00">2019-11-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-organization/" itemprop="url" rel="index"><span itemprop="name">computer organization</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>之前的两周都是输入对应着输出，没有将时间维度考虑进来。引入时间维度相关的两个问题，</p>
+<ol>
+<li>在时间维度上复用某个硬件，即多次重复计算采用同样的硬件</li>
+<li>sum类的问题，累加起来的值的保存问题<br>本周聚焦的是计算机如何线性时间执行任务，引入sequenctial logic 的概念。<h3 id="clock"><a href="#clock" class="headerlink" title="clock"></a>clock</h3>物理时间对应到计算机中是利用clock, 将物理时间分成一小段一小段相等的time unit. clock是由某种振荡器(oscillator) 构成，就是会在两个值之间来回跳转，每次循环就看成一个时间单元(time unit), 每个时间单元里变换输入就可以在不同的时间段得到不同的输出。<h4 id="延迟"><a href="#延迟" class="headerlink" title="延迟"></a>延迟</h4>如图所示，实际生活中电压延迟，经过门电路计算造成的延迟等会造成每个时间单元的前部分有延迟；<img src="/2019/11/17/nand2tetris-week3/F4322002-F783-4454-8E22-EB3CEE6A1DA3.png">
+在显示中通过设计扩大时间单元的长度，将延迟包含在内，然后采用每个时间单元结尾时候的状态就可以避免延迟造成的影响。<br>clock的目的就是为了保证稳定性，持续输入时由于有延迟的影响，需要在特定时间采用值。<h3 id="combinational-logic-vs-sequential-logic"><a href="#combinational-logic-vs-sequential-logic" class="headerlink" title="combinational logic vs sequential logic"></a>combinational logic vs sequential logic</h3>combinational logic 就是在一个时间单元里的一个输入到输出<br>out[t]  =  f(in[t])<br>但是sequential logic是多个时间单元<br>out[t] = f(in[t-1])</li>
+</ol>
+<p>在sequential logic里可以将之前计算的结果保留在一个硬件里，之后计算的结果覆盖到这个硬件里就可以用来解决上面提到的累加问题的状态保存。<br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/11/17/nand2tetris-week3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </p></div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/11/nand2tetris_week2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2006,195 +2179,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/25/understanding-grid-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="嘻嘻">
-      <meta itemprop="description" content="前端博客">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="嘻嘻的后花园">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/04/25/understanding-grid-1/" class="post-title-link" itemprop="url">初涉grid布局🐱（一）</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-04-25 16:32:49" itemprop="dateCreated datePublished" datetime="2019-04-25T16:32:49+08:00">2019-04-25</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-05-04 21:04:57" itemprop="dateModified" datetime="2019-05-04T21:04:57+08:00">2019-05-04</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/frontend/" itemprop="url" rel="index"><span itemprop="name">frontend</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/frontend/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>一直觉得grid 是个离我很遥远的技术，以为兼容性差，直到最近查看了 <a href="https://caniuse.com/#search=grid" target="_blank" rel="noopener">https://caniuse.com/#search=grid</a> </p>
-<img src="/2019/04/25/understanding-grid-1/CC870F6C-ECE9-4DA6-A367-D31D1B0FC7DB.png">
-<p>发现其实兼容性已经很好了，本篇文章基于<a href="https://cssgrid.io/" target="_blank" rel="noopener">Wes Bos的grid课程</a>，以及相关技术文章整理而成。<br>相关属性的取值可能有多个，需要自行查阅文档😯</p>
-<h3 id="开发浏览器选择"><a href="#开发浏览器选择" class="headerlink" title="开发浏览器选择"></a>开发浏览器选择</h3><p>推荐使用火狐浏览器开发者版本 <a href="https://www.mozilla.org/en-US/firefox/developer/" target="_blank" rel="noopener">Firefox Developer Edition</a> ，对css grid调试很有帮助，相关好处下文有提到。<br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/04/25/understanding-grid-1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2241,7 +2225,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

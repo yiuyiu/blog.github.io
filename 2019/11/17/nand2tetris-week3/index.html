@@ -96,17 +96,28 @@
 
 
 
-  <meta name="description" content="前端博客">
-<meta name="keywords" content="前端，后端，计算机，语言">
-<meta property="og:type" content="website">
-<meta property="og:title" content="嘻嘻的后花园">
-<meta property="og:url" content="http://yoursite.com/tags/webpack/index.html">
+  <meta name="description" content="之前的两周都是输入对应着输出，没有将时间维度考虑进来。引入时间维度相关的两个问题，  在时间维度上复用某个硬件，即多次重复计算采用同样的硬件 sum类的问题，累加起来的值的保存问题本周聚焦的是计算机如何线性时间执行任务，引入sequenctial logic 的概念。clock物理时间对应到计算机中是利用clock, 将物理时间分成一小段一小段相等的time unit. clock是由某种振荡器(">
+<meta name="keywords" content="nand2tetris">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nand2tetris_week3">
+<meta property="og:url" content="http://yoursite.com/2019/11/17/nand2tetris-week3/index.html">
 <meta property="og:site_name" content="嘻嘻的后花园">
-<meta property="og:description" content="前端博客">
+<meta property="og:description" content="之前的两周都是输入对应着输出，没有将时间维度考虑进来。引入时间维度相关的两个问题，  在时间维度上复用某个硬件，即多次重复计算采用同样的硬件 sum类的问题，累加起来的值的保存问题本周聚焦的是计算机如何线性时间执行任务，引入sequenctial logic 的概念。clock物理时间对应到计算机中是利用clock, 将物理时间分成一小段一小段相等的time unit. clock是由某种振荡器(">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/11/17/nand2tetris-week3/F4322002-F783-4454-8E22-EB3CEE6A1DA3.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/17/nand2tetris-week3/D0D6357D-C816-40A3-9EA9-3E7740F06C59.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/17/nand2tetris-week3/8A013B0F-42D3-4DA9-B6E7-2CA880966403.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/17/nand2tetris-week3/341FC35F-2B05-4671-97A6-6046E1D077FA.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/17/nand2tetris-week3/D04E7B71-E490-422B-BE5A-989DEEAA5DC3.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/17/nand2tetris-week3/EF0AB89C-C895-4859-B175-4C024E1F8FD8.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/17/nand2tetris-week3/A647BF4A-3CFB-4CE8-A8A9-AAF888FE767B.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/17/nand2tetris-week3/6E620105-93D3-4C74-8B33-F5368EA5849A.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/17/nand2tetris-week3/0383D8C0-9BA6-4285-873F-827EC4EE3491.png">
+<meta property="og:updated_time" content="2019-11-17T12:51:32.183Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="嘻嘻的后花园">
-<meta name="twitter:description" content="前端博客">
+<meta name="twitter:title" content="nand2tetris_week3">
+<meta name="twitter:description" content="之前的两周都是输入对应着输出，没有将时间维度考虑进来。引入时间维度相关的两个问题，  在时间维度上复用某个硬件，即多次重复计算采用同样的硬件 sum类的问题，累加起来的值的保存问题本周聚焦的是计算机如何线性时间执行任务，引入sequenctial logic 的概念。clock物理时间对应到计算机中是利用clock, 将物理时间分成一小段一小段相等的time unit. clock是由某种振荡器(">
+<meta name="twitter:image" content="http://yoursite.com/2019/11/17/nand2tetris-week3/F4322002-F783-4454-8E22-EB3CEE6A1DA3.png">
 
 
 
@@ -114,7 +125,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/tags/webpack/">
+  <link rel="canonical" href="http://yoursite.com/2019/11/17/nand2tetris-week3/">
 
 
 
@@ -124,7 +135,7 @@
   };
 </script>
 
-  <title>标签: webpack | 嘻嘻的后花园</title>
+  <title>nand2tetris_week3 | 嘻嘻的后花园</title>
   
 
 
@@ -172,7 +183,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -231,7 +242,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -343,106 +354,230 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>webpack<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/nand2tetris-week3/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="嘻嘻">
+      <meta itemprop="description" content="前端博客">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="嘻嘻的后花园">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2019/05/06/how-does-webpack4-work/" itemprop="url">
-            
-              <span itemprop="name">webpack4插件及工作流程</span>
-            
-          </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">nand2tetris_week3
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-06T16:46:34+08:00" content="2019-05-06">
-          05-06
-        </time>
-      </div>
+              
+            
+          </h2>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-17 20:48:19 / 修改时间：20:51:32" itemprop="dateCreated datePublished" datetime="2019-11-17T20:48:19+08:00">2019-11-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-organization/" itemprop="url" rel="index"><span itemprop="name">computer organization</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/2019/05/01/webpack4-fundamental/" itemprop="url">
-            
-              <span itemprop="name">webpack4 基础🐱</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-01T15:34:53+08:00" content="2019-05-01">
-          05-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <p>之前的两周都是输入对应着输出，没有将时间维度考虑进来。引入时间维度相关的两个问题，</p>
+<ol>
+<li>在时间维度上复用某个硬件，即多次重复计算采用同样的硬件</li>
+<li>sum类的问题，累加起来的值的保存问题<br>本周聚焦的是计算机如何线性时间执行任务，引入sequenctial logic 的概念。<h3 id="clock"><a href="#clock" class="headerlink" title="clock"></a>clock</h3>物理时间对应到计算机中是利用clock, 将物理时间分成一小段一小段相等的time unit. clock是由某种振荡器(oscillator) 构成，就是会在两个值之间来回跳转，每次循环就看成一个时间单元(time unit), 每个时间单元里变换输入就可以在不同的时间段得到不同的输出。<h4 id="延迟"><a href="#延迟" class="headerlink" title="延迟"></a>延迟</h4>如图所示，实际生活中电压延迟，经过门电路计算造成的延迟等会造成每个时间单元的前部分有延迟；<img src="/2019/11/17/nand2tetris-week3/F4322002-F783-4454-8E22-EB3CEE6A1DA3.png">
+在显示中通过设计扩大时间单元的长度，将延迟包含在内，然后采用每个时间单元结尾时候的状态就可以避免延迟造成的影响。<br>clock的目的就是为了保证稳定性，持续输入时由于有延迟的影响，需要在特定时间采用值。<h3 id="combinational-logic-vs-sequential-logic"><a href="#combinational-logic-vs-sequential-logic" class="headerlink" title="combinational logic vs sequential logic"></a>combinational logic vs sequential logic</h3>combinational logic 就是在一个时间单元里的一个输入到输出<br>out[t]  =  f(in[t])<br>但是sequential logic是多个时间单元<br>out[t] = f(in[t-1])</li>
+</ol>
+<p>在sequential logic里可以将之前计算的结果保留在一个硬件里，之后计算的结果覆盖到这个硬件里就可以用来解决上面提到的累加问题的状态保存。<br><a id="more"></a></p>
+<h3 id="flip-flop-gate"><a href="#flip-flop-gate" class="headerlink" title="flip-flop gate"></a>flip-flop gate</h3><p>计算机中最基础的sequential logic 是由flip-flop 这个chip提供的。在本课程中使用了一个data-flip-flop(DFF) 是一个变体。<br><img src="/2019/11/17/nand2tetris-week3/D0D6357D-C816-40A3-9EA9-3E7740F06C59.png"></p>
+<p><strong>out(t) = in(t–1)</strong><br>三角符号表示这是一个 sequential的chip和之前的combinational chip区别开。为什么叫flip-flop是因为它能根据它的输入 在0 和 1 之间来回变化，它的作用就是记住上一个时间单元的input值。它利用了clock 传进来的电信号和input的值保存了一个时间单元的input值。关于它的实现没有细讲，是可以通过nand来实现的大概是：</p>
+<ol>
+<li>利用loop实现信号的保存</li>
+<li>将clock信号引入保存一个时间单元的信号<br>教授的意思是实现虽然优雅但复杂，希望我们只理解到combinational logic是及时的而sequential logic是跨越时间的。在这门课中DFF是作为一个基础chip来使用就和NAND一样。</li>
+</ol>
+<p><em>ps: 项目中的所有combinational chip都可以从NAND 得到，而所有的sequential chip 都可以从DFF chip 和 combinational chip构成</em></p>
+<h3 id="register-1-bit"><a href="#register-1-bit" class="headerlink" title="register 1-bit"></a>register 1-bit</h3><p>DFF只能记一个时间单元的input，现在想要长久记住一个值。下面是它的实现<br><img src="/2019/11/17/nand2tetris-week3/8A013B0F-42D3-4DA9-B6E7-2CA880966403.png"></p>
+<p>if  load(t-1) =1  then out(t) = in(t-1)<br>else out(t) = out(t-1)<br><img src="/2019/11/17/nand2tetris-week3/341FC35F-2B05-4671-97A6-6046E1D077FA.png"></p>
+<p>下表是随着load变化值的变化，mux是代表mux的输出，即DFF的输入。图上的in相当于mux chip 里的b， out连过来的相当于a. ps: 为什么不能立刻访问DFF里的值猜测也是延迟原因造成的。<br>当load是0的时候，相当于DFF的输入是它的输出，所以就保存了这个值。</p>
+<img src="/2019/11/17/nand2tetris-week3/D04E7B71-E490-422B-BE5A-989DEEAA5DC3.png">
+<h3 id="memory-units"><a href="#memory-units" class="headerlink" title="memory units"></a>memory units</h3><p>memory 包含 RAM( random access memory ) 和 ROM(read only memory) （开机程序通常储存在这里）一个是临时的一个是永久的。<br>另外还有flash memory 同样是永久存储而且是read and write 皆可。<br>RAM里有data和instructions </p>
+<h4 id="w-bit-register"><a href="#w-bit-register" class="headerlink" title="w-bit register"></a>w-bit register</h4><img src="/2019/11/17/nand2tetris-week3/EF0AB89C-C895-4859-B175-4C024E1F8FD8.png">
+<p>利用上面的1-bit register 可以实现 w-bit register , 一些电脑是16, 32, 64 位，多少位的操作系统一般就是多少位的寄存器的宽。本门课实现的hack computer是16位的。</p>
+<h5 id="读取"><a href="#读取" class="headerlink" title="读取"></a>读取</h5><p>out 连接的就是寄存器的state值，所以任何时间点我们想要知道寄存器的state，就读取out的值就可以了</p>
+<h5 id="写入"><a href="#写入" class="headerlink" title="写入"></a>写入</h5><p>set in = x<br>set load = 1<br>寄存器的state 变成了x 但是这里是有延迟的，所以下个时间单元里才是我们要读取的值。</p>
+<p>模拟器载入内置chip DRegister<br><img src="/2019/11/17/nand2tetris-week3/A647BF4A-3CFB-4CE8-A8A9-AAF888FE767B.png"></p>
+<p>闹钟可以模拟tick tock ，点两下就是一个cycle. 右下角是register的内部state，可以理解成上面那个DFF的input值，这个state需要在每个cycle结束后和out同步 ~  tick 一下就是一个时间单元的第一个阶段并且触发了一个时间单元的第二个部分。tock一下就是第二个时间单元的开始。<br>想象成tick tock 的两个时间点都是瞬间执行完，并且DFF的值只有在tock的时间点是获取到的是上个tock的值或者一直保存的原先的out值</p>
+<h3 id="RAM-unit"><a href="#RAM-unit" class="headerlink" title="RAM unit"></a>RAM unit</h3><img src="/2019/11/17/nand2tetris-week3/6E620105-93D3-4C74-8B33-F5368EA5849A.png">
+<p>RAM 抽象来看就是由n个可以寻址(addressable) 的registers 构成。<br>在任意给定的时间点，只有<strong>一个</strong>register被选中。（实现的时候是input连接到所有register上通过mux dmux来实现被选中）<br>有n个地址需要则需要 log2 n 的数量的位数去表达。<br>比如八个地址就要3位bit去表示地址。<br>如果load设置为1，则选中的寄存器就被赋值，并且这个值在下个cycle中可以读取，如果是0则读选中的寄存器之前存的值。<br>RAM可以所以选取任意一个register进行存储，只要给个address地址就可以做到读取和写入，所以叫random access memory. 不过RAM有多少个register，寻找到特定地址的register的时间都是几乎一样的。<br>作业中的RAM8就是由8个寄存器构成，RAM64则是由8个RAM8构成，实现的时候，根据address 可以先找到具体的RAM接着再找到RAM里面对应的寄存器。</p>
+<h4 id="读取-1"><a href="#读取-1" class="headerlink" title="读取"></a>读取</h4><p>set address = i<br>读取register i 的out </p>
+<h4 id="写入-1"><a href="#写入-1" class="headerlink" title="写入"></a>写入</h4><p>set address = i<br>set in = v<br>set load = 1<br>寄存器i 的state 就变成了 v,<br>下个cycle RAM的out 就变成了v.<br>按照课程的意思就是这个RAM的out是某个寄存器的值。</p>
+<p>ps: 可以利用内置的RAM8 chip进行内部状态查看</p>
+<h3 id="Counter"><a href="#Counter" class="headerlink" title="Counter"></a>Counter</h3><p>就好像菜谱有一堆步骤一样，你按照菜谱一步一步做饭；但是你每次不一定是从菜谱的第一步开始。比如前几部是刷锅啥的o(╯□╰)o。。<br>Counter也类似，它支持累加，支持设置初始值，也支持重置。对应到程序执行中就是找到初始指令的位置，执行初始指令，再拿到下一条指令再执行。</p>
+<img src="/2019/11/17/nand2tetris-week3/0383D8C0-9BA6-4285-873F-827EC4EE3491.png">
+<p>Counter的逻辑<br><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment">	* A 16-bit counter with load and reset control bits. </span></span><br><span class="line"><span class="comment">	* if reset(t) out(t+1) = 0 </span></span><br><span class="line"><span class="comment">	* else if load(t) out(t+1) = in(t) </span></span><br><span class="line"><span class="comment">	* else if inc(t) out(t+1) = out(t) + 1 (integer addition) </span></span><br><span class="line"><span class="comment">	* else out(t+1) = out(t) </span></span><br><span class="line"><span class="comment">	*/</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h3><p>本周项目中分为a b 两个文件夹，原因是模拟器是按照文件夹读取chip的，这样可以保证在b文件夹中的RAM16k RAM512 之类的有很多register的RAM性能更好。（还是因为我们自己构建的low level 的组件可能存在性能问题👀）<br><a href="https://github.com/yiuyiu/nand2Tetris/tree/master/03" target="_blank" rel="noopener">nand2Tetris/03 at master · yiuyiu/nand2Tetris · GitHub</a></p>
+<p><strong>Bit</strong> 主要是注意DFF组件不像一般的combinational chip，它的out是可以连接到in的。<br><strong>Register</strong> 比较简单，多个Bit合并而成<br><strong> RAM8</strong>  利用DMux 将3位address映射到8个register上。之后8个register的结果利用Mux以及3位的address选择其中一个。在设计chip的时候需要跳出常规思维，信号分成多少股它的速度都是一样的，可能通常需要进行多个chip计算但是只挑选其中一个作为结果。<br><strong>RAM64</strong> address是6位了，利用前三位可以映射到不同的RAM上，后三位再在RAM里选择特定的寄存器。<br><strong>RAM512</strong> 以及 <strong>RAM4K</strong> 以及 <strong>RAM16K</strong> 同理。<br><strong>PC</strong> computer counter 主要难点还是在combinational的逻辑上，要实现三层if嵌套。truth table不复杂的情况下可以先列出再从中寻找规律。</p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nand2tetris/" rel="tag">🔖 nand2tetris</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/11/nand2tetris_week2/" rel="next" title="nand2tetris第二周--布尔算术和ALU">
+                <i class="fa fa-chevron-left"></i> nand2tetris第二周--布尔算术和ALU
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -462,8 +597,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -597,6 +741,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#clock"><span class="nav-number">1.</span> <span class="nav-text">clock</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#延迟"><span class="nav-number">1.1.</span> <span class="nav-text">延迟</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#combinational-logic-vs-sequential-logic"><span class="nav-number">2.</span> <span class="nav-text">combinational logic vs sequential logic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flip-flop-gate"><span class="nav-number">3.</span> <span class="nav-text">flip-flop gate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#register-1-bit"><span class="nav-number">4.</span> <span class="nav-text">register 1-bit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#memory-units"><span class="nav-number">5.</span> <span class="nav-text">memory units</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#w-bit-register"><span class="nav-number">5.1.</span> <span class="nav-text">w-bit register</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#读取"><span class="nav-number">5.1.1.</span> <span class="nav-text">读取</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#写入"><span class="nav-number">5.1.2.</span> <span class="nav-text">写入</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RAM-unit"><span class="nav-number">6.</span> <span class="nav-text">RAM unit</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#读取-1"><span class="nav-number">6.1.</span> <span class="nav-text">读取</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#写入-1"><span class="nav-number">6.2.</span> <span class="nav-text">写入</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Counter"><span class="nav-number">7.</span> <span class="nav-text">Counter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目"><span class="nav-number">8.</span> <span class="nav-text">项目</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -721,6 +882,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
 
   
 
@@ -736,6 +901,8 @@
 
   
 
+
+  
 
 
   
